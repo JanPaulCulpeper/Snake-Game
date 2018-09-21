@@ -18,7 +18,7 @@ public class Player {
 	public int xCoord;
 	public int yCoord;
 	public int speed = 5;
-//	public int lessSpeed;
+	//	public int lessSpeed;
 
 	public int moveCounter;
 
@@ -32,12 +32,13 @@ public class Player {
 		direction= "Right";
 		justAte = false;
 		lenght= 1;
-		
+
+
 
 	}
 
 	public void tick(){
-		
+
 		moveCounter+= 3;
 		if(moveCounter>=speed) {
 			checkCollisionAndMove();
@@ -53,6 +54,10 @@ public class Player {
 			direction="Right";
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
 			handler.getWorld().body.addFirst(new Tail(xCoord, yCoord,handler));
+		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
+			speed--;
+		}	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
+			speed++;
 		}
 	}
 
