@@ -77,6 +77,7 @@ public class GameSetUp implements Runnable {
 
         Images img = new Images();
 
+        
 
         handler = new Handler(this);
 
