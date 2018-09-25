@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>res/Buttons/Game_Over_Snake.jpg</name>
+			<type>1</type>
+			<location>C:/Users/rolyj/OneDrive/Documents/Game_Over_Snake.jpg</location>
+		</link>
+	</linkedResources>
 </projectDescription>

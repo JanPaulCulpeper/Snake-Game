@@ -254,7 +254,7 @@ public class Player {
 			for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
 
 				handler.getWorld().playerLocation[i][j]=true;
-				
+				State.setState(handler.getGame().Game_Over_State);
 
 				
 			}
