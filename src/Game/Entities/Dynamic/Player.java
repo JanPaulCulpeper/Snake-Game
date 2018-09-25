@@ -18,6 +18,7 @@ public class Player {
 	public int lenght;
 	public boolean justAte;
 	private Handler handler;
+	public int score=0;
 
 	public int xCoord;
 	public int yCoord;
@@ -64,12 +65,12 @@ public class Player {
 			speed++;
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)) {
 			State.setState(handler.getGame().pauseState);
-			
+
 		}
-		}
-	
-		
-	
+	}
+
+
+
 
 	public void checkCollisionAndMove(){
 		handler.getWorld().playerLocation[xCoord][yCoord]=false;
@@ -123,6 +124,7 @@ public class Player {
 
 	public void render(Graphics g,Boolean[][] playeLocation){
 		Random r = new Random();
+		
 		for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
 			for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
 				g.setColor(Color.GRAY);
@@ -132,6 +134,10 @@ public class Player {
 							(j*handler.getWorld().GridPixelsize),
 							handler.getWorld().GridPixelsize,
 							handler.getWorld().GridPixelsize);
+					g.setColor(Color.WHITE);
+					g.setFont(new Font("monospaced", Font.PLAIN, 50));
+					//g.drawRect(0, 0, 10,50 );
+					g.drawString("Score=" + score, 10, 55);
 				}
 
 			}
@@ -142,6 +148,7 @@ public class Player {
 
 	public void Eat(){
 		lenght++;
+		score+=1;
 		Tail tail= null;
 		handler.getWorld().appleLocation[xCoord][yCoord]=false;
 		handler.getWorld().appleOnBoard=false;
@@ -254,9 +261,9 @@ public class Player {
 			for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
 
 				handler.getWorld().playerLocation[i][j]=true;
-				
 
-				
+
+
 			}
 		}
 	}
