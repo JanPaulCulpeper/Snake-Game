@@ -6,6 +6,10 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+
+import Game.GameStates.State;
+
 /**
  * Created by AlexVR on 7/2/2018.
  */
@@ -58,8 +62,14 @@ public class Player {
 			speed--;
 		}	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
 			speed++;
+		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)) {
+			State.setState(handler.getGame().pauseState);
+			
 		}
-	}
+		}
+	
+		
+	
 
 	public void checkCollisionAndMove(){
 		handler.getWorld().playerLocation[xCoord][yCoord]=false;
@@ -235,7 +245,7 @@ public class Player {
 			break;
 		}
 		handler.getWorld().body.addLast(tail);
-		handler.getWorld().playerLocation[tail.x][tail.y] = true;
+		handler.getWorld().playerLocation[tail.x][tail.y] = false;
 	}
 
 	public void kill(){
@@ -243,8 +253,10 @@ public class Player {
 		for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
 			for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
 
-				handler.getWorld().playerLocation[i][j]=false;
+				handler.getWorld().playerLocation[i][j]=true;
+				
 
+				
 			}
 		}
 	}
