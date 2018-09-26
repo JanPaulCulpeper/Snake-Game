@@ -41,10 +41,14 @@ public class MenuState extends State {
 
     @Override
     public void render(Graphics g) {
+    	
         g.setColor(Color.darkGray);
         g.fillRect(0,0,handler.getWidth(),handler.getHeight());
         g.drawImage(Images.title,0,0,handler.getWidth(),handler.getHeight(),null);
         uiManager.Render(g);
+        g.setColor(Color.RED);
+		g.setFont(new Font("Serif", Font.BOLD, 150));
+g.drawString("SNAKE", 150, 200);
 
     }
 
