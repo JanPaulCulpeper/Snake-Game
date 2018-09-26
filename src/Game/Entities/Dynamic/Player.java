@@ -142,7 +142,8 @@ public class Player {
 							handler.getWorld().GridPixelsize);
 					g.setColor(Color.WHITE);
 					g.setFont(new Font("monospaced", Font.PLAIN, 50));
-					g.drawString("Score=" + score, 230, 700);
+					g.drawString("Score=" + score, handler.getWidth()/3,handler.getHeight()+40);
+					
 					
 					
 				}

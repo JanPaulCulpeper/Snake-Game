@@ -48,7 +48,7 @@ public class MenuState extends State {
 		uiManager.Render(g);
 		g.setColor(Color.RED);
 		g.setFont(new Font("Serif", Font.BOLD, 150));
-		g.drawString("SNAKE", 80, 200);
+		g.drawString("SNAKE", handler.getWidth()/8,handler.getHeight()/4);
 
 	}
 
