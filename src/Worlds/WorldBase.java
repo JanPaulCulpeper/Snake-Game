@@ -53,7 +53,7 @@ public abstract class WorldBase {
 
     public void render(Graphics g){
 
-        for (int i = 0; i <= 840; i = i + GridPixelsize) {
+        for (int i = 0; i <= 660; i = i + GridPixelsize) {
             g.setColor(Color.RED);
             g.drawLine(0, i, handler.getWidth() , i);
             g.drawLine(i,0,i,handler.getHeight());

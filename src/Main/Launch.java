@@ -9,7 +9,7 @@ public class Launch {
 
 	
     public static void main(String[] args) {
-        GameSetUp game = new GameSetUp("Snake", 840, 840);
+        GameSetUp game = new GameSetUp("Snake", 660, 660);
         game.start();
     }
 }

@@ -20,7 +20,7 @@ public class DisplayScreen {
     public DisplayScreen(String title, int width, int height){
         this.title = title;
         this.width = width;
-        this.height = height+100;
+        this.height = height+50;
 
 
 

@@ -14,43 +14,43 @@ import java.awt.*;
  */
 public class MenuState extends State {
 
-    private UIManager uiManager;
+	private UIManager uiManager;
 
-    public MenuState(Handler handler) {
-        super(handler);
-        uiManager = new UIManager(handler);
-        handler.getMouseManager().setUimanager(uiManager);
+	public MenuState(Handler handler) {
+		super(handler);
+		uiManager = new UIManager(handler);
+		handler.getMouseManager().setUimanager(uiManager);
 
 
-        uiManager.addObjects(new UIImageButton(handler.getWidth()/2-64, handler.getHeight()/2-32, 128, 64, Images.butstart, new ClickListlener() {
-            @Override
-            public void onClick() {
-                handler.getMouseManager().setUimanager(null);
-                handler.getGame().reStart();
-                State.setState(handler.getGame().gameState);
-            }
-        }));
-    }
+		uiManager.addObjects(new UIImageButton(handler.getWidth()/2-64, handler.getHeight()/2-32, 128, 64, Images.butstart, new ClickListlener() {
+			@Override
+			public void onClick() {
+				handler.getMouseManager().setUimanager(null);
+				handler.getGame().reStart();
+				State.setState(handler.getGame().gameState);
+			}
+		}));
+	}
 
-    @Override
-    public void tick() {
-        handler.getMouseManager().setUimanager(uiManager);
-        uiManager.tick();
+	@Override
+	public void tick() {
+		handler.getMouseManager().setUimanager(uiManager);
+		uiManager.tick();
 
-    }
+	}
 
-    @Override
-    public void render(Graphics g) {
-    	
-        g.setColor(Color.darkGray);
-        g.fillRect(0,0,handler.getWidth(),handler.getHeight());
-        g.drawImage(Images.title,0,0,handler.getWidth(),handler.getHeight(),null);
-        uiManager.Render(g);
-        g.setColor(Color.RED);
+	@Override
+	public void render(Graphics g) {
+
+		g.setColor(Color.darkGray);
+		g.fillRect(0,0,handler.getWidth(),handler.getHeight());
+		g.drawImage(Images.title,0,0,handler.getWidth(),handler.getHeight(),null);
+		uiManager.Render(g);
+		g.setColor(Color.RED);
 		g.setFont(new Font("Serif", Font.BOLD, 150));
-g.drawString("SNAKE", 150, 200);
+		g.drawString("SNAKE", 80, 200);
 
-    }
+	}
 
 
 }
