@@ -112,7 +112,10 @@ public class Player {
 			break;
 		}
 		handler.getWorld().playerLocation[xCoord][yCoord]=true;
-
+			if(lenght>1)
+				for(int i=0; i<handler.getWorld().body.size();i++)
+					if(xCoord==handler.getWorld().body.get(i).x && yCoord== handler.getWorld().body.get(i).y)
+						kill();
 
 		if(handler.getWorld().appleLocation[xCoord][yCoord]){
 			Eat();
