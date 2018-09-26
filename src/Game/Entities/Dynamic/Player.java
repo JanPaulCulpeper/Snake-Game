@@ -120,8 +120,6 @@ public class Player {
 		if(handler.getWorld().appleLocation[xCoord][yCoord]){
 			Eat();
 		}
-//		for(int i =0; i< handler.getWorld().body.size(); i++)
-//			if( handler.getWorld().playerLocation[xCoord][yCoord])
 
 		if(!handler.getWorld().body.isEmpty()) {
 			handler.getWorld().playerLocation[handler.getWorld().body.getLast().x][handler.getWorld().body.getLast().y] = false;

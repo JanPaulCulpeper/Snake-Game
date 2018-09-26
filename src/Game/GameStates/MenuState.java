@@ -22,7 +22,7 @@ public class MenuState extends State {
 		handler.getMouseManager().setUimanager(uiManager);
 
 
-		uiManager.addObjects(new UIImageButton(handler.getWidth()/2-64, handler.getHeight()/2-32, 128, 64, Images.butstart, new ClickListlener() {
+		uiManager.addObjects(new UIImageButton(handler.getWidth()/2-64, handler.getHeight()/2+75, 128, 64, Images.butstart, new ClickListlener() {
 			@Override
 			public void onClick() {
 				handler.getMouseManager().setUimanager(null);
@@ -48,7 +48,7 @@ public class MenuState extends State {
 		uiManager.Render(g);
 		g.setColor(Color.RED);
 		g.setFont(new Font("Serif", Font.BOLD, 150));
-		g.drawString("SNAKE", handler.getWidth()/8,handler.getHeight()/4);
+		g.drawString("SNAKE", handler.getWidth()/8,handler.getHeight()/4+45);
 
 	}
 
