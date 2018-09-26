@@ -21,8 +21,8 @@ public class Game_Over_State extends State {
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUimanager(uiManager);
 
-
-        uiManager.addObjects(new UIImageButton(handler.getWidth()/2-64, handler.getHeight()/2+170, 128, 64, Images.butstart, new ClickListlener() {
+        
+        uiManager.addObjects(new UIImageButton(handler.getWidth()/2-64, handler.getHeight()/2+170, 128, 64, Images.BTitle, new ClickListlener() {
             @Override
             public void onClick() {
                 handler.getMouseManager().setUimanager(null);
@@ -41,10 +41,17 @@ public class Game_Over_State extends State {
 
     @Override
     public void render(Graphics g) {
+    	
         g.setColor(Color.darkGray);
         g.fillRect(0,0,handler.getWidth(),handler.getHeight());
         g.drawImage(Images.GameOver,0,0,handler.getWidth(),handler.getHeight(),null);
+        g.drawOval(handler.getWidth()/2-69, handler.getHeight()/2+170, 128, 64);//background del title butt
+        g.setColor(Color.RED);
+        g.fillOval(handler.getWidth()/2-69, handler.getHeight()/2+170, 128, 64);
+        
+
         uiManager.Render(g);
+        
 
     }
 

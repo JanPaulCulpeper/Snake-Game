@@ -23,7 +23,7 @@ public class Player {
 	public int xCoord;
 	public int yCoord;
 	public int speed = 5;
-	//	public int lessSpeed;
+	
 
 	public int moveCounter;
 
@@ -50,17 +50,22 @@ public class Player {
 			moveCounter=0;
 		}
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)){
-			direction="Up";
+			if(direction != "Down" ) {
+			direction="Up";}
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN)){
-			direction="Down";
+			if(direction != "Up" ) {
+			direction="Down";}
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT)){
-			direction="Left";
+			if(direction != "Right") {
+			direction="Left";}
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
-			direction="Right";
+			if(direction != "Left" ) {
+			direction="Right";}
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
 			handler.getWorld().body.addFirst(new Tail(xCoord, yCoord,handler));
+			lenght++;
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
-			speed--;
+				speed--;
 		}	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
 			speed++;
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)) {
@@ -127,7 +132,7 @@ public class Player {
 		
 		for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
 			for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
-				g.setColor(Color.GRAY);
+				g.setColor(Color.GREEN);
 
 				if(playeLocation[i][j]||handler.getWorld().appleLocation[i][j]){
 					g.fillRect((i*handler.getWorld().GridPixelsize),
@@ -136,8 +141,9 @@ public class Player {
 							handler.getWorld().GridPixelsize);
 					g.setColor(Color.WHITE);
 					g.setFont(new Font("monospaced", Font.PLAIN, 50));
-					//g.drawRect(0, 0, 10,50 );
 					g.drawString("Score=" + score, 10, 55);
+					
+					
 				}
 
 			}
