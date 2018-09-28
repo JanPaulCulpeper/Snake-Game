@@ -23,7 +23,7 @@ public class Player {
 	public int xCoord;
 	public int yCoord;
 	public int speed = 5;
-	
+
 
 	public int moveCounter;
 
@@ -52,23 +52,27 @@ public class Player {
 		}
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)){
 			if(direction != "Down") {
-			direction="Up";}
+				direction="Up";}
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN)){
 			if(direction != "Up") {
-			direction="Down";}
+				direction="Down";}
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_LEFT)){
 			if(direction != "Right") {
-			direction="Left";}
+				direction="Left";}
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_RIGHT)){
 			if(direction != "Left" ) {
-			direction="Right";}
+				direction="Right";}
+			// n tile to add tail to your snake
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_N)) {
 			handler.getWorld().body.addFirst(new Tail(xCoord, yCoord,handler));
 			lenght++;
+			// = tile to increase speed
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_EQUALS)) {
-				speed--;
+			speed--;
+			// - tile to decrease speed
 		}	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)) {
 			speed++;
+			// P tile for pause
 		}if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_P)) {
 			State.setState(handler.getGame().pauseState);
 
@@ -113,10 +117,10 @@ public class Player {
 			break;
 		}
 		handler.getWorld().playerLocation[xCoord][yCoord]=true;
-			if(lenght>1)
-				for(int i=0; i<handler.getWorld().body.size();i++)
-					if(xCoord==handler.getWorld().body.get(i).x && yCoord== handler.getWorld().body.get(i).y)
-						kill();
+		if(lenght>1)
+			for(int i=0; i<handler.getWorld().body.size();i++)
+				if(xCoord==handler.getWorld().body.get(i).x && yCoord== handler.getWorld().body.get(i).y)
+					kill();
 
 		if(handler.getWorld().appleLocation[xCoord][yCoord]){
 			Eat();
@@ -132,7 +136,7 @@ public class Player {
 
 	public void render(Graphics g,Boolean[][] playeLocation){
 		Random r = new Random();
-		
+
 		for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
 			for (int j = 0; j < handler.getWorld().GridWidthHeightPixelCount; j++) {
 				g.setColor(Color.GREEN);
@@ -142,26 +146,23 @@ public class Player {
 							(j*handler.getWorld().GridPixelsize),
 							handler.getWorld().GridPixelsize,
 							handler.getWorld().GridPixelsize);
-					
+
 				}
-				
+
 			}
 		}
-		 g.setColor(new Color(129, 213, 143));
+		//SCORE Print
+		g.setColor(new Color(129, 213, 143));
 		g.setFont(new Font("monospaced", Font.BOLD, 25));
 		g.drawString("Score=" + score, handler.getWidth()/3+50,handler.getHeight()-30);
-		
 
 
-	}
 
-	public int getScore() {
-		return score;
 	}
 
 	public void Eat(){
 		lenght++;
-		score+=1;
+
 		Tail tail= null;
 		handler.getWorld().appleLocation[xCoord][yCoord]=false;
 		handler.getWorld().appleOnBoard=false;

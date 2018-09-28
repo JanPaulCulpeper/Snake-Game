@@ -34,7 +34,7 @@ public class DisplayScreen {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.setBackground(Color.DARK_GRAY);
+        frame.setBackground(Color.DARK_GRAY);//Game state background color
 
         try {
             frame.setIconImage(ImageIO.read(new File("res/Sheets/icon.png")));
