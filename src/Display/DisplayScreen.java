@@ -20,7 +20,7 @@ public class DisplayScreen {
     public DisplayScreen(String title, int width, int height){
         this.title = title;
         this.width = width;
-        this.height = height+50;
+        this.height = height;
 
 
 
@@ -47,7 +47,7 @@ public class DisplayScreen {
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setMinimumSize(new Dimension(width, height));
         canvas.setFocusable(false);
-        canvas.setBackground(Color.BLACK);
+        canvas.setBackground(Color.DARK_GRAY);
 
         frame.add(canvas);
         frame.pack();

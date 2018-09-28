@@ -37,6 +37,7 @@ public class Player {
 		direction= "Right";
 		justAte = false;
 		lenght= 1;
+		score=0;
 
 
 
@@ -141,18 +142,21 @@ public class Player {
 							(j*handler.getWorld().GridPixelsize),
 							handler.getWorld().GridPixelsize,
 							handler.getWorld().GridPixelsize);
-					g.setColor(Color.WHITE);
-					g.setFont(new Font("monospaced", Font.PLAIN, 50));
-					g.drawString("Score=" + score, handler.getWidth()/3,handler.getHeight()+40);
-					
-					
 					
 				}
-
+				
 			}
 		}
+		 g.setColor(new Color(129, 213, 143));
+		g.setFont(new Font("monospaced", Font.BOLD, 25));
+		g.drawString("Score=" + score, handler.getWidth()/3+50,handler.getHeight()-30);
+		
 
 
+	}
+
+	public int getScore() {
+		return score;
 	}
 
 	public void Eat(){
